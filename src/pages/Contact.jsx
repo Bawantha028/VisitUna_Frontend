@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Globe, Instagram } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Globe,
+  Instagram,
+} from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   const contactInfo = [
@@ -30,26 +39,26 @@ const Contact = () => {
       icon: Phone,
       title: "Phone",
       details: ["+94 91 222 4433", "+94 77 123 4567"],
-      description: "Call us for immediate assistance"
+      description: "Call us for immediate assistance",
     },
     {
       icon: Mail,
       title: "Email",
       details: ["info@visituna.lk", "bookings@visituna.lk"],
-      description: "Send us your inquiries"
+      description: "Send us your inquiries",
     },
     {
       icon: MapPin,
       title: "Location",
       details: ["Unawatuna Beach Road", "Unawatuna, Galle 80600, Sri Lanka"],
-      description: "Visit our information center"
+      description: "Visit our information center",
     },
     {
       icon: Clock,
       title: "Hours",
       details: ["Mon - Sun: 8:00 AM - 8:00 PM", "Emergency: 24/7"],
-      description: "We're here to help"
-    }
+      description: "We're here to help",
+    },
   ];
 
   return (
@@ -67,8 +76,8 @@ const Contact = () => {
               Get In Touch
             </h1>
             <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto">
-              Ready to plan your perfect getaway to Unawatuna? We're here to help you create 
-              unforgettable memories in this tropical paradise.
+              Ready to plan your perfect getaway to Unawatuna? We're here to
+              help you create unforgettable memories in this tropical paradise.
             </p>
           </motion.div>
         </div>
@@ -86,12 +95,17 @@ const Contact = () => {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl"
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Send us a Message
+              </h2>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Full Name
                     </label>
                     <input
@@ -106,7 +120,10 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email Address
                     </label>
                     <input
@@ -123,7 +140,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -138,7 +158,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -172,7 +195,9 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Contact Information
+                </h2>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
                     const IconComponent = info.icon;
@@ -182,11 +207,17 @@ const Contact = () => {
                           <IconComponent className="h-6 w-6 text-blue-600" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-gray-900 mb-1">{info.title}</h3>
+                          <h3 className="font-semibold text-gray-900 mb-1">
+                            {info.title}
+                          </h3>
                           {info.details.map((detail, detailIndex) => (
-                            <p key={detailIndex} className="text-gray-600">{detail}</p>
+                            <p key={detailIndex} className="text-gray-600">
+                              {detail}
+                            </p>
                           ))}
-                          <p className="text-sm text-gray-500 mt-1">{info.description}</p>
+                          <p className="text-sm text-gray-500 mt-1">
+                            {info.description}
+                          </p>
                         </div>
                       </div>
                     );
@@ -196,20 +227,25 @@ const Contact = () => {
 
               {/* Map Placeholder */}
               <div className="bg-gray-200 rounded-2xl overflow-hidden">
-                <div className="h-64 bg-gradient-to-br from-blue-300 to-cyan-300 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <MapPin className="h-16 w-16 mx-auto mb-4" />
-                    <h4 className="text-xl font-bold">Interactive Map</h4>
-                    <p className="text-blue-100">Unawatuna Beach Location</p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31743.015236137366!2d80.23375477773605!3d6.011635264303289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae172f162bf926d%3A0xc0444c5e8377446c!2sUnawatuna!5e0!3m2!1sen!2slk!4v1752605808239!5m2!1sen!2slk"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0, minHeight: 200, width: "100%" }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Unawatuna Map"
+                  className="w-full h-[300px] sm:h-[350px] md:h-[400px]"
+                ></iframe>
               </div>
 
               {/* Social Media */}
               <div className="bg-gradient-to-r from-pink-500 to-orange-500 p-6 rounded-2xl text-white">
                 <h3 className="text-xl font-bold mb-4">Follow Our Journey</h3>
                 <p className="text-pink-100 mb-4">
-                  Stay connected with daily updates, beautiful photos, and travel inspiration.
+                  Stay connected with daily updates, beautiful photos, and
+                  travel inspiration.
                 </p>
                 <div className="flex space-x-4">
                   <button className="bg-white text-pink-500 p-3 rounded-lg hover:bg-pink-50 transition-colors">
@@ -238,28 +274,36 @@ const Contact = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-600">Quick answers to common questions about visiting Unawatuna</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600">
+              Quick answers to common questions about visiting Unawatuna
+            </p>
           </motion.div>
 
           <div className="space-y-6">
             {[
               {
                 question: "What's the best time to visit Unawatuna?",
-                answer: "The best time to visit is from December to March when the weather is dry and perfect for beach activities. However, Unawatuna is beautiful year-round!"
+                answer:
+                  "The best time to visit is from December to March when the weather is dry and perfect for beach activities. However, Unawatuna is beautiful year-round!",
               },
               {
                 question: "How do I get to Unawatuna from Colombo?",
-                answer: "You can take a train to Galle (about 2.5 hours) and then a tuk-tuk or bus to Unawatuna (15 minutes), or drive directly (about 2 hours)."
+                answer:
+                  "You can take a train to Galle (about 2.5 hours) and then a tuk-tuk or bus to Unawatuna (15 minutes), or drive directly (about 2 hours).",
               },
               {
                 question: "Are there accommodation options for all budgets?",
-                answer: "Yes! Unawatuna offers everything from budget guesthouses and hostels to luxury resorts and boutique hotels."
+                answer:
+                  "Yes! Unawatuna offers everything from budget guesthouses and hostels to luxury resorts and boutique hotels.",
               },
               {
                 question: "Is Unawatuna safe for swimming?",
-                answer: "Yes, Unawatuna beach is protected by a coral reef, making it one of the safest beaches in Sri Lanka for swimming."
-              }
+                answer:
+                  "Yes, Unawatuna beach is protected by a coral reef, making it one of the safest beaches in Sri Lanka for swimming.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -269,7 +313,9 @@ const Contact = () => {
                 viewport={{ once: true }}
                 className="bg-white p-6 rounded-lg shadow-md"
               >
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {faq.question}
+                </h3>
                 <p className="text-gray-600">{faq.answer}</p>
               </motion.div>
             ))}
