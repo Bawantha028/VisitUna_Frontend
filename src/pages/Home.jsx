@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowDown, Play, Award, Users, Heart, Camera, X} from "lucide-react";
-import Hero from "../assets/HeroImg.jpg"
-import Coast from "../assets/paradise.jpg"
+import { ArrowDown, Play, Award, Users, Heart, Camera, X } from "lucide-react";
+import Hero from "../assets/HeroImg.jpg";
+import Coast from "../assets/paradise.jpg";
+import WaterAnimation from "../components/WaterAnimation";
 
 const Home = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -25,6 +26,11 @@ const Home = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        </div>
+
+        {/* Water Ripple Animation */}
+        <div className="absolute inset-0 z-10">
+          <WaterAnimation />
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
@@ -64,12 +70,13 @@ const Home = () => {
               onClick={() => setShowVideo(true)}
               className="flex items-center space-x-2 text-white bg-red-400 hover:bg-red-500 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
             >
-              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.8 }}>
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.8 }}
+              >
                 <Play className="h-6 w-6" />
               </motion.div>
-              <motion.span whileHover={{ scale: 1.1 }}>
-                Watch Video
-              </motion.span>
+              <motion.span whileHover={{ scale: 1.1 }}>Watch Video</motion.span>
             </button>
           </motion.div>
 
@@ -129,7 +136,10 @@ const Home = () => {
               Discover Paradise
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Nestled on the sun-kissed southern coast of Sri Lanka, Unawatuna is a breathtaking crescent-shaped bay, famed for its golden sands, clear blue waters, and a timeless charm that continues to enchant travelers from around the world.
+              Nestled on the sun-kissed southern coast of Sri Lanka, Unawatuna
+              is a breathtaking crescent-shaped bay, famed for its golden sands,
+              clear blue waters, and a timeless charm that continues to enchant
+              travelers from around the world.
             </p>
           </motion.div>
 
@@ -226,11 +236,27 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
-              initial={{ opacity: 0, y: 30, boxShadow: "0 0px 0px rgba(0,0,0,0)" }}
-              whileInView={{ opacity: 1, y: 0, boxShadow: "0 0px 0px rgba(0,0,0,0)" }}
-              transition={{ duration: 0.6, type: "spring", stiffness: 200, damping: 18 }}
+              initial={{
+                opacity: 0,
+                y: 30,
+                boxShadow: "0 0px 0px rgba(0,0,0,0)",
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                boxShadow: "0 0px 0px rgba(0,0,0,0)",
+              }}
+              transition={{
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+              }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+              }}
               className="text-center"
             >
               <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-8 rounded-2xl text-white">
@@ -250,9 +276,18 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1,type: "spring", stiffness: 200, damping: 18 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1,
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+              }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+              }}
               className="text-center"
             >
               <div className="bg-gradient-to-br from-orange-500 to-pink-500 p-8 rounded-2xl text-white">
@@ -272,9 +307,18 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2,type: "spring", stiffness: 200, damping: 18 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2,
+                type: "spring",
+                stiffness: 200,
+                damping: 18,
+              }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+              }}
               className="text-center"
             >
               <div className="bg-gradient-to-br from-green-500 to-teal-500 p-8 rounded-2xl text-white">
