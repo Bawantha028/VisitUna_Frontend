@@ -214,8 +214,8 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Quick Links */}
+      
+      {/*Quick Links Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -229,44 +229,38 @@ const Home = () => {
               Plan Your Visit
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need to make your Unawatuna experience
-              unforgettable
+              Everything you need to make your Unawatuna experience unforgettable
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-                boxShadow: "0 0px 0px rgba(0,0,0,0)",
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotateY: 5,
+                transition: { duration: 0.3, ease: "easeOut" }
               }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                boxShadow: "0 0px 0px rgba(0,0,0,0)",
-              }}
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-                damping: 18,
-              }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-              }}
-              className="text-center"
+              className="text-center group"
             >
-              <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-8 rounded-2xl text-white mb-6 relative overflow-hidden transform-gpu perspective-1000 group-hover:shadow-2xl group-hover:shadow-blue-500/25 transition-all duration-300">
+                {/* Animated background overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+                
+                {/* Floating particles effect */}
+                <div className="absolute top-2 right-2 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500 delay-100"></div>
+                
                 <h3 className="text-2xl font-bold mb-4">Attractions</h3>
                 <p className="text-blue-100 mb-6">
                   Discover hidden gems and must-visit spots around Unawatuna
                 </p>
                 <Link
                   to="/attractions"
-                  className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold transition-colors duration-300"
+                  className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-110 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:shadow-lg inline-block"
                 >
                   Explore Now
                 </Link>
@@ -276,28 +270,30 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1,
-                type: "spring",
-                stiffness: 200,
-                damping: 18,
+              whileHover={{ 
+                scale: 1.05, 
+                rotateY: -5,
+                transition: { duration: 0.3, ease: "easeOut" }
               }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-              }}
-              className="text-center"
+              className="text-center group"
             >
-              <div className="bg-gradient-to-br from-orange-500 to-pink-500 p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-orange-500 to-pink-500 p-8 rounded-2xl text-white mb-6 relative overflow-hidden transform-gpu perspective-1000 group-hover:shadow-2xl group-hover:shadow-orange-500/25 transition-all duration-300">
+                {/* Animated background overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+                
+                {/* Floating particles effect */}
+                <div className="absolute top-3 left-3 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-opacity duration-300 delay-75"></div>
+                <div className="absolute bottom-3 right-3 w-1 h-1 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500 delay-150"></div>
+                
                 <h3 className="text-2xl font-bold mb-4">Events</h3>
                 <p className="text-orange-100 mb-6">
                   Join exciting events and activities throughout the year
                 </p>
                 <Link
                   to="/events"
-                  className="bg-white text-orange-600 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold transition-colors duration-300"
+                  className="bg-white text-orange-600 hover:bg-gray-100 hover:scale-110 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:shadow-lg inline-block"
                 >
                   View Events
                 </Link>
@@ -307,28 +303,30 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-                type: "spring",
-                stiffness: 200,
-                damping: 18,
+              whileHover={{ 
+                scale: 1.05, 
+                rotateY: 5,
+                transition: { duration: 0.3, ease: "easeOut" }
               }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-              }}
-              className="text-center"
+              className="text-center group"
             >
-              <div className="bg-gradient-to-br from-green-500 to-teal-500 p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-green-500 to-teal-500 p-8 rounded-2xl text-white mb-6 relative overflow-hidden transform-gpu perspective-1000 group-hover:shadow-2xl group-hover:shadow-green-500/25 transition-all duration-300">
+                {/* Animated background overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+                
+                {/* Floating particles effect */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300 delay-100"></div>
+                <div className="absolute bottom-2 left-2 w-1 h-1 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500 delay-200"></div>
+                
                 <h3 className="text-2xl font-bold mb-4">Gallery</h3>
                 <p className="text-green-100 mb-6">
                   Browse stunning photos of Unawatuna's natural beauty
                 </p>
                 <Link
                   to="/gallery"
-                  className="bg-white text-green-600 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold transition-colors duration-300"
+                  className="bg-white text-green-600 hover:bg-gray-100 hover:scale-110 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:shadow-lg inline-block"
                 >
                   View Gallery
                 </Link>
