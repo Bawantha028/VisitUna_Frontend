@@ -44,7 +44,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@visituna.lk", "bookings@visituna.lk"],
+      details: ["info@visituna.lk"],
       description: "Send us your inquiries",
     },
     {
@@ -55,7 +55,7 @@ const Contact = () => {
     },
     {
       icon: Clock,
-      title: "Hours",
+      title: "Opening Hours",
       details: ["Mon - Sun: 8:00 AM - 8:00 PM", "Emergency: 24/7"],
       description: "We're here to help",
     },
@@ -225,21 +225,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-gray-200 rounded-2xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31743.015236137366!2d80.23375477773605!3d6.011635264303289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae172f162bf926d%3A0xc0444c5e8377446c!2sUnawatuna!5e0!3m2!1sen!2slk!4v1752605808239!5m2!1sen!2slk"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0, minHeight: 200, width: "100%" }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Unawatuna Map"
-                  className="w-full h-[300px] sm:h-[350px] md:h-[400px]"
-                ></iframe>
-              </div>
-
               {/* Social Media */}
               <div className="bg-gradient-to-r from-pink-500 to-orange-500 p-6 rounded-2xl text-white">
                 <h3 className="text-xl font-bold mb-4">Follow Our Journey</h3>
@@ -263,6 +248,24 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/94771234567"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition transform hover:scale-110"
+        title="Chat with us on WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+          fill="currentColor"
+          className="w-9 h-9 animate-pulse"
+        >
+          <path d="M16.003 3.014C9.38 3.014 3.986 8.407 3.986 15.03c0 2.65.91 5.116 2.444 7.1l-1.6 5.848 6.012-1.577a12.02 12.02 0 005.16 1.217c6.623 0 12.017-5.392 12.017-12.016S22.626 3.014 16.003 3.014zm0 21.918c-1.577 0-3.064-.392-4.374-1.09l-.312-.178-3.57.936.956-3.476-.204-.328a9.46 9.46 0 01-1.504-5.115c0-5.263 4.284-9.546 9.546-9.546s9.546 4.283 9.546 9.546c0 5.262-4.283 9.546-9.546 9.546zm5.513-7.012c-.306-.153-1.805-.89-2.087-.99-.281-.103-.486-.153-.69.153-.204.306-.79.99-.969 1.195-.178.204-.356.229-.662.076-.306-.153-1.29-.476-2.458-1.519-.91-.812-1.525-1.813-1.703-2.119-.178-.306-.02-.47.133-.623.138-.137.306-.357.459-.535.153-.179.204-.306.306-.51.103-.204.051-.382-.025-.535-.076-.153-.69-1.661-.946-2.278-.25-.6-.504-.521-.69-.53h-.588c-.178 0-.535.077-.816.382s-1.072 1.05-1.072 2.56 1.096 2.965 1.248 3.17c.153.204 2.15 3.282 5.217 4.6.729.314 1.297.502 1.74.641.731.233 1.396.2 1.922.122.586-.087 1.805-.736 2.061-1.448.254-.714.254-1.326.178-1.448-.076-.122-.28-.204-.586-.357z" />
+        </svg>
+      </a>
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
