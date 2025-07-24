@@ -1,91 +1,102 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { X, Camera, Heart, Star, Filter } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { X, Camera, Heart, Star, Filter } from "lucide-react";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ['All', 'Beach', 'Sunset', 'Landscape', 'Culture', 'Diving', 'Nature', 'Heritage', 'Wildlife'];
+  const categories = [
+    "All",
+    "Beach",
+    "Sunset",
+    "Landscape",
+    "Culture",
+    "Diving",
+    "Nature",
+    "Heritage",
+    "Wildlife",
+  ];
 
   const galleryImages = [
     {
       src: "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Golden Hour at Unawatuna",
       category: "Sunset",
-      photographer: "VisitUNA Team"
+      photographer: "VisitUNA Team",
     },
     {
       src: "https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Crystal Clear Waters",
       category: "Beach",
-      photographer: "Local Photographer"
+      photographer: "Local Photographer",
     },
     {
       src: "https://images.pexels.com/photos/1032653/pexels-photo-1032653.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Coconut Tree Hill",
       category: "Landscape",
-      photographer: "Travel Enthusiast"
+      photographer: "Travel Enthusiast",
     },
     {
       src: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Peace Pagoda Views",
       category: "Culture",
-      photographer: "Cultural Explorer"
+      photographer: "Cultural Explorer",
     },
     {
       src: "https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Underwater Paradise",
       category: "Diving",
-      photographer: "Marine Photographer"
+      photographer: "Marine Photographer",
     },
     {
       src: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Jungle Beach Secret",
       category: "Nature",
-      photographer: "Nature Lover"
+      photographer: "Nature Lover",
     },
     {
       src: "https://images.pexels.com/photos/1078850/pexels-photo-1078850.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Historic Galle Fort",
       category: "Heritage",
-      photographer: "History Buff"
+      photographer: "History Buff",
     },
     {
       src: "https://images.pexels.com/photos/1007066/pexels-photo-1007066.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Mirissa Whale Watching",
       category: "Wildlife",
-      photographer: "Wildlife Expert"
+      photographer: "Wildlife Expert",
     },
     {
       src: "https://images.pexels.com/photos/1032652/pexels-photo-1032652.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Tropical Paradise",
       category: "Beach",
-      photographer: "Beach Lover"
+      photographer: "Beach Lover",
     },
     {
       src: "https://images.pexels.com/photos/1032651/pexels-photo-1032651.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Sunset Silhouettes",
       category: "Sunset",
-      photographer: "Sunset Chaser"
+      photographer: "Sunset Chaser",
     },
     {
       src: "https://images.pexels.com/photos/1007024/pexels-photo-1007024.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Coastal Landscape",
       category: "Landscape",
-      photographer: "Landscape Artist"
+      photographer: "Landscape Artist",
     },
     {
       src: "https://images.pexels.com/photos/1024992/pexels-photo-1024992.jpeg?auto=compress&cs=tinysrgb&w=800",
       title: "Traditional Culture",
       category: "Culture",
-      photographer: "Cultural Photographer"
-    }
+      photographer: "Cultural Photographer",
+    },
   ];
 
-  const filteredImages = selectedCategory === 'All' 
-    ? galleryImages 
-    : galleryImages.filter(image => image.category === selectedCategory);
+  const filteredImages =
+    selectedCategory === "All"
+      ? galleryImages
+      : galleryImages.filter((image) => image.category === selectedCategory);
 
   return (
     <div className="pt-8">
@@ -102,8 +113,9 @@ const Gallery = () => {
               Picture Perfect Moments
             </h1>
             <p className="text-xl md:text-2xl text-purple-100 max-w-3xl mx-auto">
-              Experience the breathtaking beauty of Unawatuna through our carefully curated collection 
-              of stunning photographs capturing the essence of this tropical paradise.
+              Experience the breathtaking beauty of Unawatuna through our
+              carefully curated collection of stunning photographs capturing the
+              essence of this tropical paradise.
             </p>
           </motion.div>
         </div>
@@ -128,8 +140,8 @@ const Gallery = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
                 {category}
@@ -157,17 +169,21 @@ const Gallery = () => {
                   alt={image.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300" />
-                
+
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full w-fit mb-2">
                     {image.category}
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-1">{image.title}</h3>
-                  <p className="text-gray-200 text-sm mb-2">by {image.photographer}</p>
+                  <h3 className="text-white font-bold text-lg mb-1">
+                    {image.title}
+                  </h3>
+                  <p className="text-gray-200 text-sm mb-2">
+                    by {image.photographer}
+                  </p>
                   <div className="flex items-center text-white text-sm">
                     <Camera className="h-4 w-4 mr-2" />
                     <span>View Full Size</span>
@@ -224,17 +240,23 @@ const Gallery = () => {
             >
               <X className="h-6 w-6" />
             </button>
-            
+
             <img
               src={filteredImages[selectedImage].src}
               alt={filteredImages[selectedImage].title}
               className="w-full h-full object-contain rounded-lg"
             />
-            
+
             <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-4 rounded-lg">
-              <h3 className="font-bold text-lg mb-1">{filteredImages[selectedImage].title}</h3>
-              <p className="text-blue-300 mb-1">{filteredImages[selectedImage].category}</p>
-              <p className="text-gray-300 text-sm">by {filteredImages[selectedImage].photographer}</p>
+              <h3 className="font-bold text-lg mb-1">
+                {filteredImages[selectedImage].title}
+              </h3>
+              <p className="text-blue-300 mb-1">
+                {filteredImages[selectedImage].category}
+              </p>
+              <p className="text-gray-300 text-sm">
+                by {filteredImages[selectedImage].photographer}
+              </p>
             </div>
           </div>
         </motion.div>
