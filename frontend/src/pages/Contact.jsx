@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -39,14 +41,14 @@ const Contact = () => {
       const data = await res.json(); // 👈 read JSON response
 
       if (res.ok && data.success) {
-        alert(data.message);
+        toast.success(data.message);
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        alert(data.message || "Failed to send message. Try again.");
+        toast.error(data.message || "Failed to send message. Try again.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to send message. Try again.");
+      toast.error("Failed to send message. Try again.");
     }
   };
 
@@ -79,6 +81,7 @@ const Contact = () => {
 
   return (
     <div className="pt-8">
+      
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-teal-600 to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -341,6 +344,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      <ToastContainer position="top-center" autoClose={5000} />
     </div>
   );
 };
