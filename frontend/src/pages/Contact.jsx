@@ -26,12 +26,28 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({ name: "", email: "", phone: "", message: "" });
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json(); // 👈 read JSON response
+
+      if (res.ok && data.success) {
+        alert(data.message);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        alert(data.message || "Failed to send message. Try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to send message. Try again.");
+    }
   };
 
   const contactInfo = [
@@ -116,7 +132,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      placeholder="Your name"
+                      placeholder="Your Name"
                     />
                   </div>
                   <div>
