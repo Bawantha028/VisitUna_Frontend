@@ -8,7 +8,8 @@ import Attractions from './pages/Attractions';
 import Gallery from './pages/Gallery';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
-
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
         </Routes>
       </main>
       <Footer />
