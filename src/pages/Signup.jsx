@@ -90,15 +90,32 @@ const SignUp = () => {
     e.preventDefault();
 
     if (!validateForm()) return;
-
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("🎉 Registration successful!");
+        console.log("User:", data.user);
+        // Optionally store token:
+        localStorage.setItem("token", data.token);
+        // Redirect to login or dashboard
+        window.location.href = "/login";
+      } else {
+        alert(`⚠️ ${data.message}`);
+      }
+    } catch (err) {
+      alert("❌ Server error. Please try again.");
+    } finally {
       setIsLoading(false);
-      console.log("Sign up attempt:", formData);
-      // Handle successful sign up here
-    }, 2000);
+    }
   };
 
   const getPasswordStrength = () => {
